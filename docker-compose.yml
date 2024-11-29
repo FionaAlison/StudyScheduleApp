@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  study-scheduler-service:
+    image: study-scheduler-service
+    build: ./study-scheduler-service
+    ports:
+      - "5001:5001"
+    depends_on:
+      - database-service
+    environment:
+      - DATABASE_URL=postgresql://fiona:fiona@database-service:5432/studyapp
+    restart: on-failure
+    
+  motivational-quote-service:
+    image: motivational-quote-service
+    build: ./motivational-quote-service
+    ports:
+      - "5002:5002"
+    depends_on:
+      - database-service
+    environment:
+      - DATABASE_URL=postgresql://fiona:fiona@database-service:5432/studyapp
+    restart: on-failure
+
+  database-service:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: fiona
+      POSTGRES_PASSWORD: fiona
+      POSTGRES_DB: studyapp
+    ports:
+      - "5432:5432"
+
+  frontend-service:
+    image: frontend-service
+    build: ./FrontEnd
+    ports:
+      - "8080:5000"
+    depends_on:
+      - study-scheduler-service
+      - motivational-quote-service
+    environment:
+      - DATABASE_URL=postgresql://fiona:fiona@database-service:5432/studyapp
+    restart: on-failure

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Scheduler & Motivation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Study Scheduler</h1>
+
+        <!-- Schedule List -->
+        <ul id="schedule-list"></ul>
+
+        <!-- Form for Adding/Updating Schedules -->
+        <form id="schedule-form">
+            <input type="hidden" id="schedule-id">
+            <input type="text" id="title" placeholder="Title" required>
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <button type="submit" id="submit-button">Add Schedule</button>
+        </form>
+
+        <!-- Motivational Quote Section -->
+        <h2>Daily Motivational Quote</h2>
+        <p id="quote"></p>
+        <button id="refresh-quote">Get New Quote</button>
+
+        <!-- Navigation to Quotes Management -->
+        <a href="quotes.html" class="manage-quotes-link">Manage Quotes</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

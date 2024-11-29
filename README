@@ -1,0 +1,7 @@
+Installation
+Prerequisites
+Docker: To build and run containerized services.
+Kubernetes: For orchestrating microservices and deployment.
+Windows Host File Update: Ensure that the application runs
+ correctly by updating your hosts file in Windows to resolve internal service URLs by mapping "127.0.0.1  studyapp.local".
+ This step ensures that the backend services can be accessed via their respective local domains, e.g., http://studyapp.local instead of localhost:port.

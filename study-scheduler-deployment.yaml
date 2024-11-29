@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: study-scheduler-service
+  namespace: studyapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: study-scheduler-service
+  template:
+    metadata:
+      labels:
+        app: study-scheduler-service
+    spec:
+      containers:
+        - name: study-scheduler-service
+          image: fionachebet21932/study-scheduler-service:latest
+          ports:
+            - containerPort: 5001
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://fiona:fiona@database-service:5432/studyapp"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: study-scheduler-service
+  namespace: studyapp
+spec:
+  ports:
+    - port: 5001
+      targetPort: 5001
+  selector:
+    app: study-scheduler-service

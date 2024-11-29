@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Motivational Quotes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Motivational Quotes</h1>
+
+        <!-- Quotes List -->
+        <ul id="quote-list"></ul>
+
+        <!-- Form for Adding/Updating Quotes -->
+        <form id="quote-form">
+            <input type="hidden" id="quote-id">
+            <textarea id="quote-text" placeholder="Enter quote..." required></textarea>
+            <button type="submit" id="quote-submit-button">Add Quote</button>
+        </form>
+
+        <!-- Navigation back to Scheduler -->
+        <a href="index.html" class="back-to-scheduler">Back to Study Scheduler</a>
+    </div>
+
+    <script src="quotes-scripts.js"></script>
+</body>
+</html>
